@@ -9,7 +9,36 @@
 		<br><br><br><br>
 		<center>
 			<img id = "splashLogo" src = "images/lamppostwut2.png"><br>
-			{{> loginButtons}}
+			{{> SignUp}}
+			{{> Login}}
 		</center>
 	{{/if}}
 </template>
+
+<template name="SignUp">  
+  <form class="sign-up-form">
+    <div>  
+      <input class="email-address-input" type="text">
+    </div>
+    <div>
+      <input class="password-input" type="password">
+    </div>
+    <div>
+      <button type="submit">Sign up</button>
+    </div>
+  </form>
+</template>  
+
+<template name="Login">  
+  <form class="login-form">
+    <div>  
+      <input class="email-address-input" type="text">
+    </div>
+    <div>
+      <input class="password-input" type="password">
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+</template>  

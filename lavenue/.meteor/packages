@@ -20,5 +20,6 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
 semantic:ui-css
-accounts-ui
 accounts-password
+juliancwirko:s-alert
+juliancwirko:s-alert-flip
