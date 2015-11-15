@@ -2,6 +2,14 @@
 	<head>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	</head>
-	{{> navigationBar}}
-	{{> yield}}
+	{{#if currentUser}}
+		{{> navigationBar}}
+		{{> yield}}
+	{{else}}
+		<br><br><br><br>
+		<center>
+			<img id = "splashLogo" src = "images/lamppostwut2.png"><br>
+			{{> loginButtons}}
+		</center>
+	{{/if}}
 </template>
