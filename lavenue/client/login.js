@@ -26,6 +26,7 @@ Template.Login.events({
       }
     } else {
       Meteor.loginWithPassword(emailAddress, password, function (error) {
+        console.log("Authentication pass. Logging in now...");
         if (error) {
           console.log('Account login failed for unknown reasons :(');
         }

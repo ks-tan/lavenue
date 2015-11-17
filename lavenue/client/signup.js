@@ -25,6 +25,7 @@ Template.SignUp.events({
         console.log("Invalid password, must be at least 8 characters long");
       }
     } else {
+      console.log("Creating account...");
       Accounts.createUser({
         email: emailAddress,
         password: password
