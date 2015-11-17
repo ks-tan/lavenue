@@ -32,5 +32,12 @@ Template.Login.events({
         }
       });
     }
+  },
+
+  'click #signUp': function(){
+    Session.set('SignUp', true);
+    console.log(Session.get('SignUp'));
+    $( ".loginCard" ).hide();
+    $( ".sign-up-form" ).fadeIn();
   }
 });
