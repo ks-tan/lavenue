@@ -14,12 +14,11 @@ Template.runway.onRendered(function(){
 
 Template.runway.helpers({
 	browseImages: function() {
-		return Images.find().fetch();
+		return shuffle(Images.find().fetch());
 	}
 });
 
 Meteor.startup(function(){
-	// Images.remove({});
 	var imagesCollection = Images.find({}).fetch();
 	console.log(imagesCollection.length);
 	if (imagesCollection.length == 0) { 
