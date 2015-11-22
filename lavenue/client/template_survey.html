@@ -4,12 +4,21 @@
 	<br>
 	<center>
 		{{#each surveyImages}}
-			{{> card}}
-			<div class="ui buttons">
-			  	<button class="ui big button">Yes</button>
-			  	<div class="or" data-text="or"></div>
-			  	<button class="ui big button">Nah</button>
+			<div class="surveyCard">
+				{{> card}}
+				<div class="ui buttons">
+				  	<button class="ui big button" id="positiveSurvey">Yes</button>
+				  	<div class="or" data-text="or"></div>
+				  	<button class="ui big button" id="negativeSurvey">Nah</button>
+				</div>
 			</div>
 		{{/each}}
+	<br>
+	<div class = "ui compact segment" id="surveyDoneMsg">
+		We have gotten your style preferences. <br>
+		Proceed to the Runway to see our recommendations!<br><br>
+		<button class="ui simple medium button">Bring me there!</button>
+		<button class="ui simple medium button">I'll go later</button>
+	</div>
 	</center>
 </template>
