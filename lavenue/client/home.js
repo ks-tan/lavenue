@@ -2,8 +2,14 @@ Template.home.onRendered(function(){
 	$('.special.card .image').dimmer({
 	  on: 'hover'
 	});
-	$('.card').transition('horizontal flip');
-	$('.card').transition('horizontal flip');
+	$('.card').hide();
+	$('.card')
+	  .transition({
+	    animation : 'horizontal flip',
+	    duration  : 800,
+	    reverse   : 'auto',
+	    interval  : 200
+	  })
 });
 
 Template.home.helpers({

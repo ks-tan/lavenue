@@ -1,12 +1,21 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+h1 {
+    font-family: "Perpetua Titling MT", serif;
+    font-weight: normal;
+}
+
 #splashLogo {
 	width: 40%;
 	height: auto;
 }
 
 #logo {
-	position: absolute;
+	position: fixed;
 	z-index: 1000;
-	width: 95px;
+	width: 100px;
 	height: auto;
 }
 
