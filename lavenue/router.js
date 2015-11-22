@@ -3,15 +3,15 @@ Router.configure({
 });
 
 Router.route('/',{
-	template: 'home'
+	template: 'runway'
 });
 
-Router.route('home',{
-	template: 'home'
+Router.route('runway',{
+	template: 'runway'
 });
 
-Router.route('page1',{
-	template: 'page1'
+Router.route('survey',{
+	template: 'survey'
 });
 
 Router.route('page2',{

@@ -1,4 +1,4 @@
-Template.home.onRendered(function(){
+Template.runway.onRendered(function(){
 	$('.special.card .image').dimmer({
 	  on: 'hover'
 	});
@@ -12,7 +12,7 @@ Template.home.onRendered(function(){
 	  })
 });
 
-Template.home.helpers({
+Template.runway.helpers({
 	browseImages: function() {
 		return Images.find().fetch();
 	}

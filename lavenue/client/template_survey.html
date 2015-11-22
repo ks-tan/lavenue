@@ -1,0 +1,15 @@
+<template name="survey">
+	<br>
+	<center><h1>Find your style</h1></center>
+	<br>
+	<center>
+		{{#each surveyImages}}
+			{{> card}}
+			<div class="ui buttons">
+			  	<button class="ui big button">Yes</button>
+			  	<div class="or" data-text="or"></div>
+			  	<button class="ui big button">Nah</button>
+			</div>
+		{{/each}}
+	</center>
+</template>

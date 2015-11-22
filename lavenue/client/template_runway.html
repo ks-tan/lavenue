@@ -1,0 +1,34 @@
+<template name = "runway">
+	<br>
+	<center><h1>Runway</h1></center>
+	<br>
+	<div class="ui five stackable cards">
+		{{#each browseImages}}
+			{{> card}}
+	  	{{/each}}
+	</div>
+</template>
+
+<template name = "card">
+  	<div class="ui special card">
+	    <div class="blurring dimmable image">
+	      <div class="ui dimmer">
+	        <div class="content">
+	          <div class="center">
+	          	<p>{{seller}}:</p>
+	          	<p>{{description}}</p>
+	            <div class="ui inverted button"><i class="like icon"></i>Like</div>
+	          </div>
+	        </div>
+	      </div>
+	      <img src="{{imageUrl}}">
+	    </div>
+	    <div class="content">
+	      <div class="meta">
+	      	<span class="left floated style">{{style}}</span>
+	        <span class="right floated likes">{{likes}} likes</span>
+	      	<i class="right floated like icon"></i>
+	      </div>
+	    </div>
+	</div>
+</template>
