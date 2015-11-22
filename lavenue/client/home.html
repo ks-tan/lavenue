@@ -1,0 +1,14 @@
+<template name = "home">
+	<div class="ui six stackable cards">
+		{{#each browseImages}}
+	  	<div class="card">
+	    	<div class="image">
+	      		<img class="ui medium rounded image" src="{{imageUrl}}">
+	    	</div>
+	    	<div class="content">
+		    	{{description}}
+		  	</div>
+	  	</div>
+	  	{{/each}}
+	</div>
+</template>

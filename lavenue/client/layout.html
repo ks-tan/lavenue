@@ -3,8 +3,17 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	</head>
 	{{#if currentUser}}
-		{{> navigationBar}}
-		{{> yield}}
+		<div class="ui sidebar thin inverted vertical menu">
+	 		<a class="item" href = "{{pathFor route='home'}}">Home</a>
+	 		<a class="item" href = "{{pathFor route='page1'}}">Page 1</a>
+	 		<a class="item" href = "{{pathFor route='page2'}}">Page 2</a>
+	 		<a class="item" href = "{{pathFor route='page3'}}">Page 3</a>
+	 		<a class="item logoutButton">Logout</a>
+  		</div>
+  		<div class = "dimmed pusher">
+  			<a id = "openMenu"><img id = "logo" src = "images/logo.png"></a>
+  			{{> yield}}
+  		</div>
 	{{else}}
 		<br><br>
 		<center>

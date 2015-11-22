@@ -1,6 +1,11 @@
 #splashLogo {
 	width: 40%;
-	height:auto;
+	height: auto;
+}
+
+#logo {
+	width: 250px;
+	height: auto;
 }
 
 .sign-up-form{
