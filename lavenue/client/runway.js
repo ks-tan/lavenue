@@ -20,7 +20,6 @@ Template.runway.helpers({
 
 Meteor.startup(function(){
 	var imagesCollection = Images.find({}).fetch();
-	console.log(imagesCollection.length);
 	if (imagesCollection.length == 0) { 
 		var shortCodes = ["-VIYqHBDm1", "-TXJxmhDqe", "-QtblvBDic", "-LjRjThDga", "-DscBvhDpx", "-DKhZfhDrk", "93AzlxhDpk", "-DZwWkhDhs", "-TgjguhDmO", "-W67u-x3jv", "-UI_U7R3hh", "-Ix2dIx3gy", "9_ioc2R3jU", "9yeINCR3qP", "-K9tfvw8AB", "-EN8GDQ8LS", "-BRhstQ8Gi", "96DXB3w8JI", "9vlirVQ8Cc", "-VkQHBivF5", "-S6fHCivLb", "-QV5H9ivOh", "-LHU54ivPN", "-A4NRaivF0", "97uBmDCvAR", "95VYW-CvC-", "-SZN2Dmcqy", "-PorLkGcs9", "-FMkzqGcjR", "966goTmcg9", "9UdzE-Gcsw", "9PB2h5Gcs7"]
 		shortCodes = shuffle(shortCodes);
