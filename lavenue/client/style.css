@@ -22,3 +22,8 @@ h1 {
 .sign-up-form{
 	display: none;
 }
+
+.cardContainer{
+	width: 98%;
+	margin: auto;
+}
