@@ -1,14 +1,26 @@
 <template name = "home">
-	<div class="ui six stackable cards">
+	<br>
+	<div class="ui five stackable cards">
 		{{#each browseImages}}
-	  	<div class="card">
-	    	<div class="image">
-	      		<img class="ui medium rounded image" src="{{imageUrl}}">
-	    	</div>
-	    	<div class="content">
-		    	{{description}}
-		  	</div>
-	  	</div>
+	  	<div class="special card">
+		    <div class="blurring dimmable image">
+		      <div class="ui dimmer">
+		        <div class="content">
+		          <div class="center">
+		            <div class="ui inverted button"><i class="like icon"></i>Like</div>
+		          </div>
+		        </div>
+		      </div>
+		      <img src="{{imageUrl}}">
+		    </div>
+		    <div class="content">
+		      <div class="meta">
+		      	<span class="left floated style">{{style}}</span>
+		        <span class="right floated likes">{{likes}} likes</span>
+		      	<i class="right floated like icon"></i>
+		      </div>
+		    </div>
+		</div>
 	  	{{/each}}
 	</div>
 </template>
