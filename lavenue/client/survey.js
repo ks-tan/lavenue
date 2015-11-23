@@ -6,7 +6,11 @@ Template.survey.onRendered(function(){
 	});
 	$('.surveyCard').hide();
 	$('.surveyCard').first().transition('horizontal flip').addClass('shown');
-	$('#surveyDoneMsg').hide();
+	if (numOfPicturesSwiped < 5){
+		$('#surveyDoneMsg').hide();
+	} else {
+		$('#analysing').hide();
+	}
 });
 
 Template.survey.helpers({
@@ -16,14 +20,21 @@ Template.survey.helpers({
 });
 
 Template.survey.events({
-	'click #positiveSurvey': function(){
+	'click .ui.big.button': function(){
 		$('.surveyCard.shown').last().transition('horizontal flip');
 		setTimeout(function(){
 			$('.surveyCard.shown').last().next().transition('horizontal flip').addClass("shown");
 		}, 600);
 		numOfPicturesSwiped++;
 		if (numOfPicturesSwiped == 5){
-			$('#surveyDoneMsg').transition('fade up');
+			$('#analysing').transition('fade up');
+			setTimeout(function(){
+				$('#analysing').hide();
+				$('#surveyDoneMsg').transition('fade up');
+			}, 600);
 		}
+	},
+	'click #goLater': function() {
+		$('#surveyDoneMsg').transition('fade up');		
 	}
 });

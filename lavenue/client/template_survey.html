@@ -3,6 +3,11 @@
 	<center><h1>Find your style</h1></center>
 	<br>
 	<center>
+		<div class = "ui compact segment" id="analysing">
+		<h4><i class="notched circle big loading icon"></i>Select the photos you like while we analyze your style preference</h4>
+		</div>
+	</center><br>
+	<center>
 		{{#each surveyImages}}
 			<div class="surveyCard">
 				{{> card}}
@@ -15,10 +20,10 @@
 		{{/each}}
 	<br>
 	<div class = "ui compact segment" id="surveyDoneMsg">
-		We have gotten your style preferences. <br>
-		Proceed to the Runway to see our recommendations!<br><br>
-		<button class="ui simple medium button">Bring me there!</button>
-		<button class="ui simple medium button">I'll go later</button>
+		<h4>We have gotten your style preference! <br>
+		Proceed to the Runway to see our recommendations!</h4>
+		<a href = "{{pathFor route='runway'}}"><button class="ui simple medium button">To the Runway!</button></a>
+		<button class="ui simple medium button" id="goLater">I'll go later</button>
 	</div>
 	</center>
 </template>
