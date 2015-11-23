@@ -1,6 +1,6 @@
 <template name="survey">
 	<br>
-	<center><h1>Find your style</h1></center>
+	<center><h1>Style Profiling</h1></center>
 	<br>
 	<center>
 		<div class = "ui compact segment" id="analysing">
@@ -18,32 +18,15 @@
 				</div>
 			</div>
 		{{/each}}
-	<br>
+		{{> Template.dynamic template=whichOne}}
+	</center>
+</template>
+
+<template name = "surveyDoneMsg">
 	<div id="surveyDoneMsg">
-		<h3>Your stlye profile: </h3>
-		<div class="ui large horizontal statistic">
-			<div class="value">50%</div>
-			<div class="label"><h2>Classic</h2></div>
-		</div><br>
-		<div class="ui horizontal statistic">
-			<div class="value">20%</div>
-			<div class="label">Chic</div>
-		</div>
-		<div class="ui horizontal statistic">
-			<div class="value">15%</div>
-			<div class="label">Bhoemian</div>
-		</div>
-		<div class="ui horizontal statistic">
-			<div class="value">10%</div>
-			<div class="label">Avant-garde</div>
-		</div>
-		<div class="ui horizontal statistic">
-			<div class="value">5%</div>
-			<div class="label">Whimsical</div>
-		</div>
+		<div id = "chart">{{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}</div>
 		<h3>Proceed to the Runway to see our recommendations!</h3>
 		<a href = "{{pathFor route='runway'}}"><button class="ui simple medium button">To the Runway!</button></a>
-		<button class="ui simple medium button" id="goLater">I'll go later</button>
+		<button class="ui simple medium button" id="goLater">Continue profiling</button>
 	</div>
-	</center>
 </template>
