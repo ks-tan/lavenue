@@ -19,9 +19,29 @@
 			</div>
 		{{/each}}
 	<br>
-	<div class = "ui compact segment" id="surveyDoneMsg">
-		<h4>We have gotten your style preference! <br>
-		Proceed to the Runway to see our recommendations!</h4>
+	<div id="surveyDoneMsg">
+		<h3>Your stlye profile: </h3>
+		<div class="ui large horizontal statistic">
+			<div class="value">50%</div>
+			<div class="label"><h2>Classic</h2></div>
+		</div><br>
+		<div class="ui horizontal statistic">
+			<div class="value">20%</div>
+			<div class="label">Chic</div>
+		</div>
+		<div class="ui horizontal statistic">
+			<div class="value">15%</div>
+			<div class="label">Bhoemian</div>
+		</div>
+		<div class="ui horizontal statistic">
+			<div class="value">10%</div>
+			<div class="label">Avant-garde</div>
+		</div>
+		<div class="ui horizontal statistic">
+			<div class="value">5%</div>
+			<div class="label">Whimsical</div>
+		</div>
+		<h3>Proceed to the Runway to see our recommendations!</h3>
 		<a href = "{{pathFor route='runway'}}"><button class="ui simple medium button">To the Runway!</button></a>
 		<button class="ui simple medium button" id="goLater">I'll go later</button>
 	</div>
