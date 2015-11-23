@@ -65,7 +65,7 @@ Template.surveyDoneMsg.topGenresChart = function() {
             plotShadow: false
         },
         title: {
-            text: "You are <b>Classic!</b>"
+            text: "Your style preference:<br><b>Classic!</b>"
         },
         tooltip: {
             pointFormat: '<b>{point.percentage:.1f}%</b>'
