@@ -17,3 +17,9 @@ Template.stylingRoom.helpers({
 		return Cart.find().fetch();
 	}
 });
+
+Template.stylingRoom.events({
+	'click #subscriptionButton':function(){
+		$('#subscriptionModal').modal('show');
+	}
+});

@@ -19,10 +19,13 @@
 					<div id="walletAmount"><i class="dollar icon"></i>50.00</div>
 					<div id="walletRemaining">remaining</div><br>
 					<button class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
-					<button class="ui teal button"><i class="payment big icon"></i>Get free credits!</button>
+					<button id="subscriptionButton" class="ui teal button"><i class="payment big icon"></i>Get free credits!</button>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="subscriptionModal" class="ui small modal">
+		{{> subscription}}
 	</div>
 	</center>
 </template>
@@ -51,3 +54,32 @@
 	    </div>
 	</div>
 </template>
+
+<template name="subscription">
+	<center>
+		<br>
+		<h1>L'Avenue Premium Subscription</h1>
+		<h3>Pay a monthly subscription fee of $100/month to get</h3>
+		<div class="ui statistic">
+	  		<div class="value">$100</div>
+			<div class="label">Free Credits/Month</div>
+		</div>
+		<div class="ui statistic">
+	  		<div class="value">Free</div>
+			<div class="label">Fashion consultation</div>
+		</div>
+		<br><br>
+		<button class="ui teal button"><i class="paypal card big icon"></i>Subscribe now</button>
+		<br><br><br>
+	</center>
+</template>
+
+
+
+
+
+
+
+
+
+
