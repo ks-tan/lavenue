@@ -13,7 +13,7 @@ Template.survey.onRendered(function(){
 
 Template.survey.helpers({
 	surveyImages: function(){
-		return Images.find().fetch();
+		return Items.find().fetch();
 	},
 	whichOne: function(){
 		if (Session.get("surveyDone") == true){

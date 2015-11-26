@@ -22,6 +22,6 @@ Router.route('page3',{
 	template: 'page3'
 });
 
-Router.route('fetchImages',{
-	template: 'fetchImages'
+Router.route('fetchItems',{
+	template: 'fetchItems'
 });
