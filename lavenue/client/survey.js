@@ -13,7 +13,7 @@ Template.survey.onRendered(function(){
 
 Template.survey.helpers({
 	surveyImages: function(){
-		return Items.find().fetch();
+		return shuffle(Items.find().fetch());
 	},
 	whichOne: function(){
 		if (Session.get("surveyDone") == true){
@@ -58,20 +58,21 @@ Template.surveyDoneMsg.onRendered(function(){
 });
 
 Template.surveyDoneMsg.topGenresChart = function() {
-	var remainingPercentage = 100;
-	var randomClassicPercentage = Math.floor(Math.random() * 100);
-	remainingPercentage -= randomClassicPercentage;
+	//assign 10 for each first
+	var remainingPercentage = 50;
+	var randomClassicPercentage = Math.floor(Math.random() * (remainingPercentage)) + 10;
+	remainingPercentage -= randomClassicPercentage - 10;
 
-	var randomChicPercentage = Math.floor(Math.random() * remainingPercentage);
-	remainingPercentage -= randomChicPercentage;
+	var randomChicPercentage = Math.floor(Math.random() * (remainingPercentage)) + 10;
+	remainingPercentage -= randomChicPercentage - 10;
 	
-	var randomBohemianPercentage = Math.floor(Math.random() * remainingPercentage);
-	remainingPercentage -= randomBohemianPercentage;
+	var randomBohemianPercentage = Math.floor(Math.random() * (remainingPercentage)) + 10;
+	remainingPercentage -= randomBohemianPercentage - 10;
 	
-	var randomAvantGrandePercentage = Math.floor(Math.random() * remainingPercentage);
-	remainingPercentage -= randomAvantGrandePercentage;
+	var randomAvantGrandePercentage = Math.floor(Math.random() * (remainingPercentage)) + 10;
+	remainingPercentage -= randomAvantGrandePercentage - 10;
 	
-	var randomWhimscalPercentage = remainingPercentage;
+	var randomWhimscalPercentage = remainingPercentage + 10;
 
 	var allPercentage = [randomClassicPercentage, randomChicPercentage, randomBohemianPercentage, randomAvantGrandePercentage, randomWhimscalPercentage];
 	allPercentage.sort(sortNumber);
@@ -105,7 +106,7 @@ Template.surveyDoneMsg.topGenresChart = function() {
 		Profile.insert({userId: Meteor.userId(), 
 						preference: sortedStyle});
 	}
-	
+
     return {
         chart: {
             plotBackgroundColor: null,
