@@ -58,6 +58,30 @@ Template.surveyDoneMsg.onRendered(function(){
 });
 
 Template.surveyDoneMsg.topGenresChart = function() {
+	var remainingPercentage = 100;
+	var randomClassicPercentage = Math.floor(Math.random() * 100);
+	remainingPercentage -= randomClassicPercentage;
+	console.log("type of remainingPercentage " + typeof remainingPercentage);
+	console.log("remainingPercentage "+ remainingPercentage);
+	console.log("classic " + randomClassicPercentage);
+
+	var randomChicPercentage = Math.floor(Math.random() * remainingPercentage);
+	remainingPercentage -= randomChicPercentage;
+	console.log("chic " + randomChicPercentage);
+	
+	var randomBohemianPercentage = Math.floor(Math.random() * remainingPercentage);
+	remainingPercentage -= randomBohemianPercentage;
+	console.log("bohemian " + randomBohemianPercentage);
+	
+	var randomAvantGrandePercentage = Math.floor(Math.random() * remainingPercentage);
+	remainingPercentage -= randomAvantGrandePercentage;
+	console.log("avant garde " + randomAvantGrandePercentage);
+	
+	var randomWhimscalPercentage = remainingPercentage;
+	console.log("Whimsical " + randomWhimscalPercentage);
+
+	
+
     return {
         chart: {
             plotBackgroundColor: null,
@@ -88,11 +112,11 @@ Template.surveyDoneMsg.topGenresChart = function() {
             type: 'pie',
             name: 'genre',
             data: [
-                ['Classic',   50],
-                ['Chic',       20],
-                ['Bohemian',   15],
-                ['Avant-garde',    10],
-                ['Whimsical',     5]
+                ['Classic',   randomClassicPercentage],
+                ['Chic',      	randomChicPercentage],
+                ['Bohemian',   randomBohemianPercentage],
+                ['Avant-garde',   randomAvantGrandePercentage],
+                ['Whimsical',     randomWhimscalPercentage]
             ]
         }]
     };
