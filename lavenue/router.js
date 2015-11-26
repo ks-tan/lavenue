@@ -18,8 +18,8 @@ Router.route('stylingRoom',{
 	template: 'stylingRoom'
 });
 
-Router.route('page3',{
-	template: 'page3'
+Router.route('yourShop',{
+	template: 'yourShop'
 });
 
 Router.route('fetchItems',{
