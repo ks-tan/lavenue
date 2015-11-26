@@ -1,3 +1,4 @@
+var style = ["Whimsical", "Avant-garde", "Bohemian", "Chic", "Classic"];
 Template.fetchItems.onRendered(function(){
 	var imagesCollection = Items.find().fetch();
 	if (imagesCollection.length == 0) { 
@@ -24,7 +25,16 @@ Template.fetchItems.onRendered(function(){
 					return;
 				}
 				console.log(imageUrl);
-				Items.insert({imageUrl: imageUrl, description: "Am I pretty?", price: "$9.99", likes: nLikes, style: "Classy urban"});
+				var randomStyle = Math.floor(Math.random() * 5);
+
+				var possibility = Math.random();
+				var randomPrice;
+				if (possibility > 0.9) {
+					randomPrice = Math.floor(Math.random() * 300) + 200;
+				} else {
+					randomPrice = Math.floor(Math.random() * 150) + 50;
+				}
+				Items.insert({imageUrl: imageUrl, description: "Am I pretty?", price: "$" + randomPrice + ".00", likes: nLikes, style: style[randomStyle]});
 			});
 		}
 	}
