@@ -61,27 +61,51 @@ Template.surveyDoneMsg.topGenresChart = function() {
 	var remainingPercentage = 100;
 	var randomClassicPercentage = Math.floor(Math.random() * 100);
 	remainingPercentage -= randomClassicPercentage;
-	console.log("type of remainingPercentage " + typeof remainingPercentage);
-	console.log("remainingPercentage "+ remainingPercentage);
-	console.log("classic " + randomClassicPercentage);
 
 	var randomChicPercentage = Math.floor(Math.random() * remainingPercentage);
 	remainingPercentage -= randomChicPercentage;
-	console.log("chic " + randomChicPercentage);
 	
 	var randomBohemianPercentage = Math.floor(Math.random() * remainingPercentage);
 	remainingPercentage -= randomBohemianPercentage;
-	console.log("bohemian " + randomBohemianPercentage);
 	
 	var randomAvantGrandePercentage = Math.floor(Math.random() * remainingPercentage);
 	remainingPercentage -= randomAvantGrandePercentage;
-	console.log("avant garde " + randomAvantGrandePercentage);
 	
 	var randomWhimscalPercentage = remainingPercentage;
-	console.log("Whimsical " + randomWhimscalPercentage);
 
+	var allPercentage = [randomClassicPercentage, randomChicPercentage, randomBohemianPercentage, randomAvantGrandePercentage, randomWhimscalPercentage];
+	allPercentage.sort(sortNumber);
+	console.log("sorted percentage " + allPercentage);
+
+// var style = ["Whimsical", "Avant-garde", "Bohemian", "Chic", "Classic"];
+	var sortedStyle = [];
+	for (x in allPercentage) {
+		if (allPercentage[x] == randomWhimscalPercentage) {
+			sortedStyle.push("Whimsical");
+		} else if (allPercentage[x] == randomBohemianPercentage) {
+			sortedStyle.push("Bohemian");
+		} else if (allPercentage[x] == randomChicPercentage) {
+			sortedStyle.push("Chic");
+		} else if (allPercentage[x] == randomClassicPercentage) {
+			sortedStyle.push("Classic");
+		} else if (allPercentage[x] == randomAvantGrandePercentage) {
+			sortedStyle.push("Avant-garde");
+		}
+	}
+
+	console.log(sortedStyle);
+
+	var oldProfile = Profile.findOne({userId: Meteor.userId()});
+	if (typeof oldProfile != "undefined") {
+		Profile.update(oldProfile._id, {
+       					 $set: {preference: sortedStyle}
+       					});
+
+	} else {
+		Profile.insert({userId: Meteor.userId(), 
+						preference: sortedStyle});
+	}
 	
-
     return {
         chart: {
             plotBackgroundColor: null,
@@ -121,3 +145,7 @@ Template.surveyDoneMsg.topGenresChart = function() {
         }]
     };
 };
+
+function sortNumber(a,b) {
+    return b - a;
+}

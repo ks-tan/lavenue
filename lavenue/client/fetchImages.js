@@ -34,7 +34,11 @@ Template.fetchItems.onRendered(function(){
 				} else {
 					randomPrice = Math.floor(Math.random() * 150) + 50;
 				}
-				Items.insert({imageUrl: imageUrl, description: "Am I pretty?", price: "$" + randomPrice + ".00", likes: nLikes, style: style[randomStyle]});
+				Items.insert({imageUrl: imageUrl, 
+							description: "Am I pretty?", 
+							price: "$" + randomPrice + ".00", 
+							likes: nLikes, 
+							style: style[randomStyle]});
 			});
 		}
 	}
