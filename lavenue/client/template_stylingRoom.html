@@ -1,0 +1,52 @@
+<template name="stylingRoom">
+	<center>
+	<br>
+	<h1>Styling Room</h1>
+	<br>
+	<div class="cardContainer">
+		<div class="ui stackable grid">
+			<div class ="twelve wide column">
+				<div class="ui four stackable cards">
+					{{#each chosenItem}}
+						{{> stylingRoomCard}}
+				  	{{/each}}
+				</div>
+			</div>
+			<div class ="four wide column">
+				<div class="ui fluid card">
+					<br>
+					<h2><i class="money big icon"></i>Wallet</h2><br><br>
+					<div id="walletAmount"><i class="dollar icon"></i>50.00</div>
+					<div id="walletRemaining">remaining</div><br>
+					<button class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</center>
+</template>
+
+<template name = "stylingRoomCard">
+  	<div class="ui special card">
+	    <div class="blurring dimmable image">
+	      <div class="ui dimmer">
+	        <div class="content">
+	          <div class="center">
+	          	<p>{{item.seller}}:</p>
+	          	<p>{{item.description}}</p>
+	            <button id="likeButton" class="ui inverted button" value="{{_id}}"><i class="like icon"></i>Rent</button>
+	          </div>
+	        </div>
+	      </div>
+	      <img src="{{item.imageUrl}}">
+	      <div class="ui teal ribbon label">{{item.price}}</div>
+	    </div>
+	    <div class="content">
+	      <div class="meta">
+	      	<span class="left floated style">{{item.style}}</span>
+	        <span class="right floated likes">{{item.likes}} likes</span>
+	      	<i class="right floated like icon"></i>
+	      </div>
+	    </div>
+	</div>
+</template>

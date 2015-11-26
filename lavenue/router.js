@@ -14,8 +14,8 @@ Router.route('survey',{
 	template: 'survey'
 });
 
-Router.route('page2',{
-	template: 'page2'
+Router.route('stylingRoom',{
+	template: 'stylingRoom'
 });
 
 Router.route('page3',{

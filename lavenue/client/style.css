@@ -2,7 +2,7 @@
     display: none; 
 }
 
-h1 {
+h1,h2,h3 {
     font-family: "Perpetua Titling MT", serif;
     font-weight: normal;
 }
@@ -19,6 +19,14 @@ h1 {
 	height: auto;
 }
 
+#walletAmount {
+	font-size: 65px;
+}
+
+#walletRemaining{
+	font-size: 30px;
+}
+
 .sign-up-form{
 	display: none;
 }
@@ -27,3 +35,4 @@ h1 {
 	width: 98%;
 	margin: auto;
 }
+
