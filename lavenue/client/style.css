@@ -20,7 +20,15 @@ h1,h2 {
 }
 
 #walletAmount {
-	font-size: 65px;
+	font-size: 50px;
+}
+
+#rentAmount {
+	font-size: 50px;
+}
+
+#redTag {
+	color: red;
 }
 
 #walletRemaining{

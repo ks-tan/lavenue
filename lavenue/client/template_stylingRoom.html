@@ -15,8 +15,17 @@
 			<div class ="four wide column">
 				<div class="ui fluid card">
 					<br>
+					<h2><i class="money big icon"></i>Total</h2><br><br>
+					<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
+				</div>
+				<div class="ui fluid card">
+					<br>
 					<h2><i class="money big icon"></i>Wallet</h2><br><br>
-					<div id="walletAmount"><i class="dollar icon"></i>50.00</div>
+					{{#if hasNotEnoughMoney}}
+						<div id="walletAmount"><i class="dollar icon" id="redTag"></i>{{getRemaining totalPrice}}.00</div>
+					{{else}}
+						<div id="walletAmount"><i class="dollar icon"></i>{{getRemaining totalPrice}}.00</div>
+					{{/if}}
 					<div id="walletRemaining">remaining</div><br>
 					<button class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
 					<button id="subscriptionButton" class="ui teal button"><i class="payment big icon"></i>Get free credits!</button>
@@ -38,12 +47,16 @@
 	          <div class="center">
 	          	<p>{{item.seller}}:</p>
 	          	<p>{{item.description}}</p>
-	            <button id="likeButton" class="ui inverted button" value="{{_id}}"><i class="like icon"></i>Rent</button>
+	          	{{#if isChosenToRent}}
+	           	 	<button id="unrentButton" class="ui inverted button" value="{{_id}}"><i class="delete icon"></i>Cancel Rent</button>
+	            {{else}}
+	            	<button id="rentButton" class="ui inverted button" value="{{_id}}"><i class="like icon"></i>Rent</button>
+	            {{/if}}
 	          </div>
 	        </div>
 	      </div>
 	      <img src="{{item.imageUrl}}">
-	      <div class="ui teal ribbon label"><h2>{{item.price}}</h2></div>
+	      <div class="ui teal ribbon label"><h2>${{item.price}}.00</h2></div>
 	    </div>
 	    <div class="content">
 	      <div class="meta">

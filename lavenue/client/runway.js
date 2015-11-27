@@ -39,7 +39,6 @@ Template.runway.helpers({
 Template.card.events({
 	'click #likeButton': function(){
 		var itemId = event.target.value;
-		var item = Items.findOne({_id: itemId});
-		Cart.insert({item: item});
+		Cart.insert({userId: Meteor.userId(), itemId: itemId});
 	}
 });

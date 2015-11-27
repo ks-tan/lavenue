@@ -36,7 +36,7 @@ Template.fetchItems.onRendered(function(){
 				}
 				Items.insert({imageUrl: imageUrl, 
 							description: "Am I pretty?", 
-							price: "$" + randomPrice + ".00", 
+							price: randomPrice, 
 							likes: nLikes, 
 							style: style[randomStyle]});
 			});
