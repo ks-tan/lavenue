@@ -35,12 +35,18 @@ Template.stylingRoom.helpers({
 	},
 	getRemaining: function(totalPrice) {
 		return 200 - totalPrice;
+	},
+	hasNotEnoughMoney: function(totalPrice){
+		return (200-totalPrice) < 0;
 	}
 });
 
 Template.stylingRoom.events({
 	'click #subscriptionButton':function(){
 		$('#subscriptionModal').modal('show');
+	},
+	'click #topupButton': function(){
+		$('#topupModal').modal('show');
 	},
 	'click #rentButton': function(event) {
 		event.preventDefault();

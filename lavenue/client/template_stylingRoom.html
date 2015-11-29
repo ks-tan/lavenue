@@ -15,19 +15,27 @@
 			<div class ="four wide column">
 				<div class="ui fluid card">
 					<br>
-					<h2><i class="money big icon"></i>Total</h2><br><br>
-					<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
+					<h2><i class="tag big icon"></i>Total rent</h2><br><br>
+					{{#if hasNotEnoughMoney totalPrice}}
+						<div id="rentAmount" class="redTag"><i class="dollar icon"></i>{{totalPrice}}.00</div>
+						<button class="ui orange button">Not enough credits in wallet</button>
+					{{else}}
+						<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
+						<button class="ui teal button"><i class="paypal big card icon"></i>Confirm rent</button>
+					{{/if}}
 				</div>
 				<div class="ui fluid card">
 					<br>
 					<h2><i class="money big icon"></i>Wallet</h2><br><br>
-					{{#if hasNotEnoughMoney}}
-						<div id="walletAmount"><i class="dollar icon" id="redTag"></i>{{getRemaining totalPrice}}.00</div>
+					{{#if hasNotEnoughMoney totalPrice}}
+						<div id="walletAmount" class="redTag"><i class="dollar icon"></i>{{getRemaining totalPrice}}.00</div>
+						<div id="walletRemaining" class="redTag">remaining</div><br>
+						<button id="topupButton" class="ui orange button"><i class="paypal big card icon"></i>Top-up your wallet</button>
 					{{else}}
 						<div id="walletAmount"><i class="dollar icon"></i>{{getRemaining totalPrice}}.00</div>
+						<div id="walletRemaining">remaining</div><br>
+						<button id="topupButton" class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
 					{{/if}}
-					<div id="walletRemaining">remaining</div><br>
-					<button class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
 					<button id="subscriptionButton" class="ui teal button"><i class="payment big icon"></i>Get free credits!</button>
 				</div>
 			</div>
@@ -35,6 +43,9 @@
 	</div>
 	<div id="subscriptionModal" class="ui small modal">
 		{{> subscription}}
+	</div>
+	<div id="topupModal" class="ui small modal">
+		{{> topup}}
 	</div>
 	</center>
 </template>
@@ -73,6 +84,35 @@
 		<br>
 		<h1>L'Avenue Premium Subscription</h1>
 		<h3>Pay a monthly subscription fee of $100/month to get</h3>
+		<div class="ui statistic">
+	  		<div class="value">$100</div>
+			<div class="label">Free Credits/Month</div>
+		</div>
+		<div class="ui statistic">
+	  		<div class="value">Free</div>
+			<div class="label">Fashion consultation</div>
+		</div>
+		<br><br>
+		<button class="ui teal button"><i class="paypal card big icon"></i>Subscribe now</button>
+		<br><br><br>
+	</center>
+</template>
+
+<template name="topup">
+	<center>
+		<br>
+		<h1>Top up your wallet</h1>
+		<h3>Choose one of these top-up options</h3>
+		<div class="ui buttons">
+		  	<button class="ui massive button">$100</button>
+		</div>
+		<div class="ui buttons">
+		  	<button class="ui massive button">$200</button>
+		</div>
+		<div class="ui buttons">
+		  	<button class="ui massive button">$300</button>
+		</div>
+		<h3>Or pay a monthly subscription fee of $100/month to get</h3>
 		<div class="ui statistic">
 	  		<div class="value">$100</div>
 			<div class="label">Free Credits/Month</div>
