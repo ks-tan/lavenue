@@ -21,7 +21,7 @@
 						<button class="ui orange button">Not enough credits in wallet</button>
 					{{else}}
 						<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
-						<button class="ui teal button"><i class="paypal big card icon"></i>Confirm rent</button>
+						<button id="paypalButton" class="ui teal button">Checkout</button>
 					{{/if}}
 				</div>
 				<div class="ui fluid card">
@@ -41,11 +41,14 @@
 			</div>
 		</div>
 	</div>
-	<div id="subscriptionModal" class="ui small modal">
+	<div id="subscriptionModal" class="ui medium modal">
 		{{> subscription}}
 	</div>
 	<div id="topupModal" class="ui small modal">
 		{{> topup}}
+	</div>
+	<div id="paypalModal" class="ui basic small modal">
+		{{> paypal}}
 	</div>
 	</center>
 </template>
@@ -83,17 +86,42 @@
 	<center>
 		<br>
 		<h1>L'Avenue Premium Subscription</h1>
-		<h3>Pay a monthly subscription fee of $100/month to get</h3>
-		<div class="ui statistic">
-	  		<div class="value">$100</div>
-			<div class="label">Free Credits/Month</div>
+		<h3>Choose one of the following subscription plans</h3>
+		<div class="subscriptionCardContainer">
+			<div class="ui three stackable cards">
+				<div class="ui fluid card">
+					<br>
+					<div class="ui statistic">
+				  		<div class="value">$200</div>
+						<div class="label">free credits/month</div>
+					</div>
+					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $100/month</button>
+				</div>
+				<div class="ui fluid card">
+					<br>
+					<div class="ui statistic">
+				  		<div class="value">$400</div>
+						<div class="label">free credits/month</div>
+					</div>
+					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $200/month</button>
+				</div>
+				<div class="ui fluid card">
+					<br>
+					<div class="ui statistic">
+				  		<div class="value">$600</div>
+						<div class="label">free credits/month</div>
+					</div>
+					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $300/month</button>
+				</div>
+			</div>
 		</div>
+		<br>
+		<h3>You will also receive</h3>
 		<div class="ui statistic">
 	  		<div class="value">Free</div>
 			<div class="label">Fashion consultation</div>
 		</div>
-		<br><br>
-		<button class="ui teal button"><i class="paypal card big icon"></i>Subscribe now</button>
+		<h3>based on data analytics of current trends and your style profile</h3>
 		<br><br><br>
 	</center>
 </template>
@@ -104,30 +132,30 @@
 		<h1>Top up your wallet</h1>
 		<h3>Choose one of these top-up options</h3>
 		<div class="ui buttons">
-		  	<button class="ui massive button">$100</button>
+		  	<button id="paypalButton" class="ui massive teal button" value=100>$100</button>
 		</div>
 		<div class="ui buttons">
-		  	<button class="ui massive button">$200</button>
+		  	<button id="paypalButton" class="ui massive teal button" value=200>$200</button>
 		</div>
 		<div class="ui buttons">
-		  	<button class="ui massive button">$300</button>
+		  	<button id="paypalButton" class="ui massive teal button" value=300>$300</button>
 		</div>
-		<h3>Or pay a monthly subscription fee of $100/month to get</h3>
-		<div class="ui statistic">
-	  		<div class="value">$100</div>
-			<div class="label">Free Credits/Month</div>
-		</div>
-		<div class="ui statistic">
-	  		<div class="value">Free</div>
-			<div class="label">Fashion consultation</div>
-		</div>
-		<br><br>
-		<button class="ui teal button"><i class="paypal card big icon"></i>Subscribe now</button>
 		<br><br><br>
 	</center>
 </template>
 
-
+<template name="paypal">
+	<center>
+		<br>
+		<div id="paypalLoading"><i class="notched circle huge loading icon"></i></div>
+		<div id="paypalSuccess">
+			<div id="successMessage"><i class="check circle outline icon"></i>Checkout success!</div><br>
+			<div id="successSubMessage">Proceed to your wardrobe to check your purchases</div><br>
+			<button class="ui teal basic button">Visit my Wardrobe</button>
+		</div>
+		<br>
+	</center>
+</template>
 
 
 

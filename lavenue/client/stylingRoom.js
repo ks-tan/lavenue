@@ -34,10 +34,14 @@ Template.stylingRoom.helpers({
 		return total;
 	},
 	getRemaining: function(totalPrice) {
-		return 200 - totalPrice;
+		if (Profile.findOne({userId: Meteor.userId()}).wallet == null){
+			var id = Profile.findOne({userId: Meteor.userId()})._id;
+			Profile.update(id, {$set: {wallet: 0}});
+		}
+		return Profile.findOne({userId: Meteor.userId()}).wallet - totalPrice;
 	},
 	hasNotEnoughMoney: function(totalPrice){
-		return (200-totalPrice) < 0;
+		return (Profile.findOne({userId: Meteor.userId()}).wallet-totalPrice) < 0;
 	}
 });
 
@@ -47,6 +51,19 @@ Template.stylingRoom.events({
 	},
 	'click #topupButton': function(){
 		$('#topupModal').modal('show');
+	},
+	'click #paypalButton': function(){
+		$('#paypalModal').modal('show');
+		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
+		$('#paypalSuccess').hide().delay(1000).fadeIn();
+
+		var chosenToRentCart = Cart.find({userId : Meteor.userId(), isChosenToRent: true}).fetch();
+		for (x in chosenToRentCart) {
+			Meteor.userId();
+			Purchases.insert(chosenToRentCart[x]);
+			var id = chosenToRentCart[x]._id;
+			Cart.remove(id);
+		}
 	},
 	'click #rentButton': function(event) {
 		event.preventDefault();
@@ -59,5 +76,25 @@ Template.stylingRoom.events({
 		var cartId = event.target.value;
 		
 		Cart.update(cartId, {$set : {isChosenToRent: false}});
+	}
+});
+
+Template.subscription.events({
+	'click #paypalButton': function(event){
+		$('#paypalModal').modal('show');
+		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
+		$('#paypalSuccess').hide().delay(1000).fadeIn();
+	}
+});
+
+Template.topup.events({
+	'click #paypalButton': function(event){
+		$('#paypalModal').modal('show');
+		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
+		$('#paypalSuccess').hide().delay(1000).fadeIn();
+		var topupAmount = event.target.value;
+		var walletRemaining = parseInt(Profile.findOne({userId: Meteor.userId()}).wallet) + topupAmount;
+		var id = Profile.findOne({userId: Meteor.userId()})._id;
+		Profile.update(id, {$set: {wallet: walletRemaining}});
 	}
 });

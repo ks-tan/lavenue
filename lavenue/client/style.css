@@ -35,6 +35,24 @@ h1,h2 {
 	font-size: 30px;
 }
 
+#paypalLoading{
+	display: none;
+}
+
+#paypalSuccess{
+	display: none;
+	font: green;
+}
+
+#successMessage{
+	font-size: 30px;
+	color: #1E9E9E;
+}
+
+#successSubMessage{
+	font-size: 20px;
+}
+
 .sign-up-form{
 	display: none;
 }
@@ -43,4 +61,11 @@ h1,h2 {
 	width: 98%;
 	margin: auto;
 }
+.subscriptionCardContainer{
+	width: 95%;
+	margin: auto;
+}
 
+.ui.teal.button {
+	color: white;
+}
