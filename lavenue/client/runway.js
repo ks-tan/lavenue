@@ -16,10 +16,8 @@ Template.runway.helpers({
 	browseImages: function() {
 		var items = Items.find().fetch();
 		var profile = Profile.findOne({userId: Meteor.userId()});
-		var preference = profile.preference;
-		console.log(profile);
-		console.log(preference);
-		if (typeof items != "undefined" && typeof preference != "undefined") {
+		if (typeof items != "undefined" && typeof profile != "undefined") {
+			var preference = profile.preference;
 			var result = [];
 			for (x in preference) {
 				for (y in items) {
@@ -30,7 +28,6 @@ Template.runway.helpers({
 			}
 			return result;
 		} else {
-			console.log("wrong place");
 			return shuffle(Items.find().fetch());
 		}
 	}

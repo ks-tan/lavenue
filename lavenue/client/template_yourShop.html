@@ -1,0 +1,9 @@
+<template name = "yourShop">
+	<br>
+	<center><h1>Your Shop</h1></center>
+	<br>
+	{{getImageFromInstagram}}
+	{{#each imageUrl}}
+		<img src="{{this}}">
+	{{/each}}
+</template>
