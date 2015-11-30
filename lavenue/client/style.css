@@ -69,3 +69,11 @@ h1,h2 {
 .ui.teal.button {
 	color: white;
 }
+
+.wardrobeCardTitle{
+	font-size: 30px;
+}
+
+.ui.segment{
+	display: none;
+}

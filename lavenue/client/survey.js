@@ -57,7 +57,7 @@ Template.surveyDoneMsg.onRendered(function(){
 	$('#surveyDoneMsg').hide();
 });
 
-Template.surveyDoneMsg.topGenresChart = function() {
+Template.chart.topGenresChart = function() {
 	//assign 10 for each first
 	var remainingPercentage = 50;
 	var randomClassicPercentage = Math.floor(Math.random() * (remainingPercentage)) + 10;

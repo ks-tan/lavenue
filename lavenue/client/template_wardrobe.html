@@ -1,0 +1,60 @@
+<template name="wardrobe">
+	<center>
+		<br>
+		<h1>Wardrobe</h1>
+		<br>
+		<div class="cardContainer">
+			<div class="ui stackable grid">
+				<div class="row">
+					<div class="four wide column">
+						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="payment large icon"></i>Credit card</div><br>
+							<form class="ui form">
+								<input type="text" name="creditCardNo" placeholder="Card Number"><br><br>
+								<input type="text" name="cardExpirationDate" placeholder="Expiration date (MM/YY)"><br><br>
+								<button class="ui teal button" type="Submit">Update information</button>
+							</form>
+						</div>
+						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="money large icon"></i>Wallet</div><br><br>
+							<div id="walletAmount"><i class="dollar icon"></i>{{getRemaining}}.00</div>
+							<button class="ui button">Top-up wallet</button>
+							<button class="ui teal button">Get free credits</button>
+						</div>
+					</div>
+					<div class="eight wide column">
+						<div class="ui basic segment">
+							<div class="wardrobeCardTitle"><i class="instagram large icon"></i>Your Shop</div><br>
+							//shows who rented which clothes<br>
+							//allows user to add in info for their clothes
+						</div>
+						<div class="ui basic segment">
+							<div class="wardrobeCardTitle"><i class="tags large icon"></i>You borrowed</div><br>
+							<div class="ui three stackable cards">
+								{{#each purchases}}
+									{{> stylingRoomCard}}
+							  	{{/each}}<br>
+							  	//shows return dates of clothes
+							</div>
+						</div>
+					</div>
+					<div class="four wide column">
+						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="pie chart large icon"></i>Style profile</div><br>
+							<button class="ui teal button">See profile breakdown</button>
+						</div>
+						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="cut large icon"></i>Your sexy sizes</div><br>
+							<form class="ui form">
+								<input type="text" name="size1" placeholder="Boob size"><br><br>
+								<input type="text" name="size2" placeholder="Booty size"><br><br>
+								<input type="text" name="size2" placeholder="Shoe size"><br><br>
+								<button class="ui teal button" type="Submit">Update sizes</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</center>
+</template>
