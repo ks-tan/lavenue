@@ -92,8 +92,8 @@ Template.topup.events({
 		$('#paypalModal').modal('show');
 		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
 		$('#paypalSuccess').hide().delay(1000).fadeIn();
-		var topupAmount = event.target.value;
-		var walletRemaining = parseInt(Profile.findOne({userId: Meteor.userId()}).wallet) + topupAmount;
+		var topupAmount = Number(event.target.value);
+		var walletRemaining = Number(Profile.findOne({userId: Meteor.userId()}).wallet) + topupAmount;
 		var id = Profile.findOne({userId: Meteor.userId()})._id;
 		Profile.update(id, {$set: {wallet: walletRemaining}});
 	}
