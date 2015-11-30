@@ -18,9 +18,23 @@
 		<br><br>
 		<center>
 			<img id = "splashLogo" src = "images/lamppostwut2.png"><br>
-			<div class = "ui compact segment">
-				{{> SignUp}}
-				{{> Login}}
+			<div class="ui grid">
+				<div class="row">
+					<div class="right floated three wide column">
+						<div class = "ui compact basic segment">
+							{{> SignUp}}
+							{{> Login}}
+						</div>
+					</div>
+					<div class="ui vertical divider">Or</div>
+					<div class="left floated three wide column">
+						<div class = "ui compact basic segment">
+							<br><br>
+							<button class="ui blue button"><i class="facebook icon"></i>Login with Facebook</button><br><br>
+							<button class="ui teal button"><i class="instagram icon"></i>Login with Instagram</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</center>
 	{{/if}}
@@ -55,11 +69,8 @@
 	    </div>
 	    <div>
 	      <button class = "ui button" type="submit">Log-in</button>
+	      <button class = "ui button" id = "signUp">New user</button>
 	    </div>
 	  </form>
-	  <br>
-	  <div>
-	    <button class = "ui button" id = "signUp">New user</button>
-	  </div>
   	</div>
 </template>  
