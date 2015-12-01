@@ -34,7 +34,7 @@ Template.stylingRoom.helpers({
 		return total;
 	},
 	getRemaining: function(totalPrice) {
-		if (Profile.findOne({userId: Meteor.userId()}) == null){
+		if (Profile.findOne({userId: Meteor.userId()}) == null || isNaN(Profile.findOne({userId: Meteor.userId()}).wallet)){
 			var id = Profile.findOne({userId: Meteor.userId()})._id;
 			Profile.update(id, {$set: {wallet: 0}});
 		}
