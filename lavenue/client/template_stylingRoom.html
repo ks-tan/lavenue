@@ -15,28 +15,23 @@
 			<div class ="four wide column">
 				<div class="ui fluid card">
 					<br>
-					<h2><i class="tag big icon"></i>Total rent</h2><br><br>
-					{{#if hasNotEnoughMoney totalPrice}}
-						<div id="rentAmount" class="redTag"><i class="dollar icon"></i>{{totalPrice}}.00</div>
-						<button class="ui orange button">Not enough credits in wallet</button>
-					{{else}}
-						<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
-						<button id="paypalButton" class="ui teal button">Checkout</button>
-					{{/if}}
+					<h2><i class="tag big icon"></i>Total rent</h2><br>
+					<div id="rentAmount"><i class="dollar icon"></i>{{totalPrice}}.00</div>
+					<br>
 				</div>
 				<div class="ui fluid card">
 					<br>
-					<h2><i class="money big icon"></i>Wallet</h2><br><br>
+					<h2><i class="money big icon"></i>Wallet</h2><br>
 					{{#if hasNotEnoughMoney totalPrice}}
 						<div id="walletAmount" class="redTag"><i class="dollar icon"></i>{{getRemaining totalPrice}}.00</div>
 						<div id="walletRemaining" class="redTag">remaining</div><br>
-						<button id="topupButton" class="ui orange button"><i class="paypal big card icon"></i>Top-up your wallet</button>
+						<button id="subscriptionButton" class="ui orange button"><i class="money big icon"></i>Get free credits!</button>
 					{{else}}
 						<div id="walletAmount"><i class="dollar icon"></i>{{getRemaining totalPrice}}.00</div>
 						<div id="walletRemaining">remaining</div><br>
-						<button id="topupButton" class="ui button"><i class="paypal big card icon"></i>Top-up your wallet</button>
+						<button id="paypalButton" class="ui button"><i class="money big icon"></i>Pay with Wallet</button>
 					{{/if}}
-					<button id="subscriptionButton" class="ui teal button"><i class="payment big icon"></i>Get free credits!</button>
+					<button id="paypalButton" class="ui teal button"><i class="paypal big card icon"></i>Pay with credit card</button>
 				</div>
 			</div>
 		</div>
@@ -95,7 +90,7 @@
 				  		<div class="value">$200</div>
 						<div class="label">free credits/month</div>
 					</div>
-					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $100/month</button>
+					<button id="paypalButton" class="ui teal button" value="200"><i class="payment big icon"></i>Pay only $100/month</button>
 				</div>
 				<div class="ui fluid card">
 					<br>
@@ -103,7 +98,7 @@
 				  		<div class="value">$400</div>
 						<div class="label">free credits/month</div>
 					</div>
-					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $200/month</button>
+					<button id="paypalButton" class="ui teal button" value="400"><i class="payment big icon"></i>Pay only $200/month</button>
 				</div>
 				<div class="ui fluid card">
 					<br>
@@ -111,7 +106,7 @@
 				  		<div class="value">$600</div>
 						<div class="label">free credits/month</div>
 					</div>
-					<button id="paypalButton" class="ui teal button"><i class="payment big icon"></i>Pay only $300/month</button>
+					<button id="paypalButton" class="ui teal button" value="600"><i class="payment big icon"></i>Pay only $300/month</button>
 				</div>
 			</div>
 		</div>
