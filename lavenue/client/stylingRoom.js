@@ -41,7 +41,7 @@ Template.stylingRoom.helpers({
 		return Profile.findOne({userId: Meteor.userId()}).wallet - totalPrice;
 	},
 	hasNotEnoughMoney: function(totalPrice){
-		return (Profile.findOne({userId: Meteor.userId()}).wallet-totalPrice) < 0;
+		return (Profile.findOne({userId: Meteor.userId()}).wallet-totalPrice) <= 0;
 	}
 });
 
@@ -57,13 +57,24 @@ Template.stylingRoom.events({
 		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
 		$('#paypalSuccess').hide().delay(1000).fadeIn();
 
+		var total = 0;
 		var chosenToRentCart = Cart.find({userId : Meteor.userId(), isChosenToRent: true}).fetch();
 		for (x in chosenToRentCart) {
 			Meteor.userId();
 			Purchases.insert(chosenToRentCart[x]);
 			var id = chosenToRentCart[x]._id;
 			Cart.remove(id);
+			var itemId = chosenToRentCart[x].itemId;
+			total += Items.findOne({_id: itemId}).price;
 		}
+
+		var remainingAmount = Profile.findOne({userId: Meteor.userId()}).wallet - total;
+		var profileId = Profile.findOne({userId: Meteor.userId()})._id;
+		Profile.update(profileId, {$set: {wallet: remainingAmount}});
+
+		setTimeout(function(){
+			$('#paypalModal').modal('hide');
+		},5000);
 	},
 	'click #rentButton': function(event) {
 		event.preventDefault();
@@ -81,9 +92,16 @@ Template.stylingRoom.events({
 
 Template.subscription.events({
 	'click #paypalButton': function(event){
+		var topUpPrice = event.target.value;
+		var newWalletAmount = Number(Profile.findOne({userId: Meteor.userId()}).wallet) + Number(topUpPrice);
+		var id = Profile.findOne({userId: Meteor.userId()})._id;
+		Profile.update(id, {$set: {wallet: newWalletAmount}});
 		$('#paypalModal').modal('show');
 		$('#paypalLoading').fadeIn().delay(500).fadeOut(100);
 		$('#paypalSuccess').hide().delay(1000).fadeIn();
+		setTimeout(function(){
+			$('#paypalModal').modal('hide');
+		},5000);
 	}
 });
 
@@ -96,5 +114,8 @@ Template.topup.events({
 		var walletRemaining = Number(Profile.findOne({userId: Meteor.userId()}).wallet) + topupAmount;
 		var id = Profile.findOne({userId: Meteor.userId()})._id;
 		Profile.update(id, {$set: {wallet: walletRemaining}});
+		setTimeout(function(){
+			$('#paypalModal').modal('hide');
+		},5000);
 	}
 });
