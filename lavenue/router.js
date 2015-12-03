@@ -25,3 +25,7 @@ Router.route('wardrobe',{
 Router.route('fetchItems',{
 	template: 'fetchItems'
 });
+
+Router.route('firstTimeUser',{
+	template: 'firstTimeUser'
+});

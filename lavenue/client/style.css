@@ -77,3 +77,7 @@ h1,h2 {
 .ui.segment{
 	display: none;
 }
+
+.intro {
+	display: none;
+}

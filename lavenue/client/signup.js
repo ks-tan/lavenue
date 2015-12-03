@@ -35,5 +35,6 @@ Template.SignUp.events({
         }
       });
     }
+    Router.go('/firstTimeUser');
   }
 });
