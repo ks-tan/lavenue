@@ -14,7 +14,7 @@
 <template name = "card">
   	<div class="ui special card">
 	    <div class="blurring dimmable image">
-	      <div class="ui dimmer">
+	      <div class="ui dimmer" id="descriptionHolder" title="{{_id}}">
 	        <div class="content">
 	          <div class="center">
 	          	<p>{{seller}}:</p>
@@ -33,4 +33,20 @@
 	      </div>
 	    </div>
 	</div>
+	<div id="moreDetailsModal" class="ui medium modal">
+		{{> moreDetails}}
+	</div>
+</template>
+
+<template name = "moreDetails">
+	<center>
+		<br>
+		<h1 class="title">TITLE HERE</h1>
+		<img class="image" src="{{imageUrl}}">
+		<pre><p class="description">{{description}}</p></pre>
+		<h3>${{price}}.00</h3>
+	  	<span class="style">{{style}}</span>
+	    <span class="likes">{{likes}} likes</span>
+		<br><br><br>
+	</center>
 </template>

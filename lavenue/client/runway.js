@@ -37,5 +37,15 @@ Template.card.events({
 	'click #likeButton': function(){
 		var itemId = event.target.value;
 		Cart.insert({userId: Meteor.userId(), itemId: itemId});
+	},
+	'click #descriptionHolder': function(event) {
+		event.preventDefault();
+		var id = event.currentTarget.title;
+		var item = Items.findOne({_id: id});
+		$('#moreDetailsModal').modal('show', id);
+		// $('h1.title').text("TITLE HERE");
+		// $('img.image').attr('src', item.imageUrl);
+		// $('p.description').text(item.description);
+		// $('h3#price').text(item.price);
 	}
 });
