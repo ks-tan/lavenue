@@ -25,6 +25,12 @@
 					<div class="eight wide column">
 						<div class="ui basic segment">
 							<div class="wardrobeCardTitle"><i class="instagram large icon"></i>Your Shop</div><br>
+							{{getImageFromInstagram}}
+							<div class="ui three stackable cards">
+							{{#each imageUrl}}
+								{{> yourShopCard}}
+							{{/each}}
+							</div>
 							//shows who rented which clothes<br>
 							//allows user to add in info for their clothes
 						</div>
@@ -57,4 +63,28 @@
 			</div>
 		</div>
 	</center>
+</template>
+
+<template name = "yourShopCard">
+  	<div class="ui special card">
+	    <div class="blurring dimmable image">
+	      <div class="ui dimmer">
+	        <div class="content">
+	          <div class="center">
+	          	<p>PLACEHOLDER</p>
+	          	<p>DESCRIPTION</p>
+	          </div>
+	        </div>
+	      </div>
+	      <img src="{{this}}">
+	      <div class="ui teal ribbon label"><h2>PRICE HERE</h2></div>
+	    </div>
+	    <div class="content">
+	      <div class="meta">
+	      	<span class="left floated style">STYLE HERE</span>
+	        <span class="right floated likes">LIKES HERE</span>
+	      	<i class="right floated like icon"></i>
+	      </div>
+	    </div>
+	</div>
 </template>
