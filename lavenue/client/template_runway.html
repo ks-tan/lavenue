@@ -12,12 +12,14 @@
 </template>
 
 <template name = "card">
+	<div id="moreDetailsModal" class="ui medium modal">
+		{{> moreDetails}}
+	</div>
   	<div class="ui special card">
 	    <div class="blurring dimmable image">
 	      <div class="ui dimmer" id="descriptionHolder" title="{{_id}}">
 	        <div class="content">
 	          <div class="center">
-	          	<p>{{seller}}:</p>
 	          	<p>{{{description}}}</p>
 	            <button id="likeButton" class="ui inverted button" value="{{_id}}"><i class="like icon"></i>Like</button>
 	          </div>
@@ -33,20 +35,17 @@
 	      </div>
 	    </div>
 	</div>
-	<div id="moreDetailsModal" class="ui medium modal">
-		{{> moreDetails}}
-	</div>
 </template>
 
 <template name = "moreDetails">
 	<center>
 		<br>
 		<h1 class="title">TITLE HERE</h1>
-		<img class="image" src="{{imageUrl}}">
-		<pre><p class="description">{{description}}</p></pre>
-		<h3>${{price}}.00</h3>
-	  	<span class="style">{{style}}</span>
-	    <span class="likes">{{likes}} likes</span>
+		<img class="image">
+		<pre><p class="description"></p></pre>
+		<h3 class="price"></h3>
+	  	<span class="style"></span>
+	    <span class="likes"></span>
 		<br><br><br>
 	</center>
 </template>
