@@ -45,16 +45,30 @@ Template.runway.helpers({
 
 Template.card.events({
 	'click #likeButton': function(){
-		var itemId = event.target.value;
-		Items.update(itemId, { $inc : { likes: 1 } });
-		Cart.insert({userId: Meteor.userId(), itemId: itemId});
+		var itemId;
+		if(event.target == document.getElementById('likeButton')) {
+			itemId = event.target.value;
+		} else {
+			itemId = event.target.parentNode.value;
+		}
+		if (typeof itemId !== "undefined") {
+			Items.update(itemId, { $inc : { likes: 1 } });
+			Cart.insert({userId: Meteor.userId(), itemId: itemId});
+		}
 	},
 	'click #unlikeButton': function() {
-		var itemId = event.target.value;
+		var itemId;
+		if(event.target == document.getElementById('unlikeButton')) {
+			itemId = event.target.value;
+		} else {
+			itemId = event.target.parentNode.value;
+		}
 		var cartId = Cart.findOne({userId: Meteor.userId(), itemId: itemId})._id;
-		console.log(cartId);
-		Items.update(itemId, { $inc : { likes: -1 } });
-		Cart.remove(cartId);
+
+		if (typeof cartId !== "undefined") {
+			Items.update(itemId, { $inc : { likes: -1 } });
+			Cart.remove(cartId);
+		}
 	},
 	'click #descriptionHolder': function(event) {
 		if(event.target == document.getElementById('descriptionHolder')) {

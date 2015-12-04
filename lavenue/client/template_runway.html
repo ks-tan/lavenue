@@ -23,11 +23,11 @@
 	          	<p>{{{description}}}</p>
 	            {{#if liked}} 
 	            <button id="unlikeButton" class="ui inverted button" value="{{_id}}">
-	            	<i class="like red icon"></i>Liked
+	            	<i class="like red icon" value="{{_id}}"></i>Liked
             	</button>
             	{{else}}
 	            <button id="likeButton" class="ui inverted button" value="{{_id}}">
-            		<i class="like icon"></i>Like
+            		<i class="like icon" value="{{_id}}"></i>Like
             	</button>
             	{{/if}}
 	          </div>
