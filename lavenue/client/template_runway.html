@@ -21,7 +21,15 @@
 	        <div class="content">
 	          <div class="center">
 	          	<p>{{{description}}}</p>
-	            <button id="likeButton" class="ui inverted button" value="{{_id}}"><i class="like icon"></i>Like</button>
+	            {{#if liked}} 
+	            <button id="unlikeButton" class="ui inverted button" value="{{_id}}">
+	            	<i class="like red icon"></i>Liked
+            	</button>
+            	{{else}}
+	            <button id="likeButton" class="ui inverted button" value="{{_id}}">
+            		<i class="like icon"></i>Like
+            	</button>
+            	{{/if}}
 	          </div>
 	        </div>
 	      </div>
@@ -31,7 +39,11 @@
 	      <div class="meta">
 	      	<span class="left floated style">{{style}}</span>
 	        <span class="right floated likes">{{likes}} likes</span>
-	      	<i class="right floated like icon"></i>
+	        {{#if liked}} 
+        		<i class="right floated red like icon"></i>
+        	{{else}}
+        		<i class="right floated like icon"></i>
+        	{{/if}}
 	      </div>
 	    </div>
 	</div>

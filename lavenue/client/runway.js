@@ -15,6 +15,11 @@ Template.runway.onRendered(function(){
 Template.runway.helpers({
 	browseImages: function() {
 		var items = Items.find().fetch();
+		var carts = Cart.find({userId: Meteor.userId()}).fetch();
+		var itemInCarts = [];
+		for (x in carts) {
+			itemInCarts.push(carts[x].itemId);
+		}
 		var profile = Profile.findOne({userId: Meteor.userId()});
 		if (typeof items != "undefined" && typeof profile != "undefined") {
 			var preference = profile.preference;
@@ -22,6 +27,11 @@ Template.runway.helpers({
 			for (x in preference) {
 				for (y in items) {
 					if (preference[x] == items[y].style) {
+						if (itemInCarts.indexOf(items[y]._id) > -1) {
+							items[y].liked = true
+						} else {
+							items[y].liked = false
+						}
 						result.push(items[y]);
 					}
 				}
@@ -36,17 +46,27 @@ Template.runway.helpers({
 Template.card.events({
 	'click #likeButton': function(){
 		var itemId = event.target.value;
+		Items.update(itemId, { $inc : { likes: 1 } });
 		Cart.insert({userId: Meteor.userId(), itemId: itemId});
 	},
+	'click #unlikeButton': function() {
+		var itemId = event.target.value;
+		var cartId = Cart.findOne({userId: Meteor.userId(), itemId: itemId})._id;
+		console.log(cartId);
+		Items.update(itemId, { $inc : { likes: -1 } });
+		Cart.remove(cartId);
+	},
 	'click #descriptionHolder': function(event) {
-		event.preventDefault();
-		var id = event.currentTarget.title;
-		console.log(id);
-		var item = Items.findOne({_id: id});
-		$('#moreDetailsModal').modal('show');
-		$('h1.title').text("TITLE HERE");
-		$('img.image').attr('src', item.imageUrl);
-		$('p.description').text(item.description);
-		$('h3#price').text(item.price);
+		if(event.target == document.getElementById('descriptionHolder')) {
+			event.preventDefault();
+			var id = event.currentTarget.title;
+			console.log(id);
+			var item = Items.findOne({_id: id});
+			$('#moreDetailsModal').modal('show');
+			$('h1.title').text("TITLE HERE");
+			$('img.image').attr('src', item.imageUrl);
+			$('p.description').text(item.description);
+			$('h3#price').text(item.price);
+    	}
 	}
 });
