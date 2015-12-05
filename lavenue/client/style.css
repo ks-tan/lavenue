@@ -15,6 +15,10 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+#firstTimeUserForm {
+	width: 70%;
+}
+
 #splashLogo {
 	width: 40%;
 	height: auto;
