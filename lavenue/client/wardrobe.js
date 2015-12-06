@@ -10,7 +10,7 @@ Template.wardrobe.onRendered(function(){
 
 Template.wardrobe.events({
 	'click #profileBreakdownButton': function(){
-		$(".ui.modal").modal('show');
+		$("#profileBreakdownModal").modal('show');
 	}
 });
 
@@ -166,7 +166,9 @@ Template.yourShopCard.events({
 	    }
 	    var id = this._id
 	    var description = document.getElementById(id+'insertDescription').value;
-	    ShopItems.update(id, {$set: {bust: bust, waist: waist, hip: hip, description: description}});
+	    var price = document.getElementById(id+'priceInput').value;
+	    console.log(price);
+	    ShopItems.update(id, {$set: {price: price, bust: bust, waist: waist, hip: hip, description: description}});
 	    console.log(description);
 	}
 });

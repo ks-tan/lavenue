@@ -28,27 +28,25 @@
 							<div class="wardrobeCardTitle"><i class="shop large icon"></i>Transactions</div>
 							<table class="ui celled table">
 							  <thead>
-							    <tr><th>Header</th>
-							    <th>Header</th>
-							    <th>Header</th>
+							    <tr><th>Item</th>
+							    <th>Price</th>
+							    <th>Renter/Owner</th>
 							  </tr></thead>
 							  <tbody>
 							    <tr>
-							      <td>
-							        <div class="ui ribbon label">First</div>
-							      </td>
-							      <td>Cell</td>
-							      <td>Cell</td>
+							      <td>Prada Kitten-Heel</td>
+							      <td class="positive">$130.00</td>
+							      <td>TwentiesGirlStyle</td>
 							    </tr>
 							    <tr>
-							      <td>Cell</td>
-							      <td>Cell</td>
-							      <td>Cell</td>
+							      <td>Wothington Long-Sleeve</td>
+							      <td class="negative">$200.00</td>
+							      <td>Michelle</td>
 							    </tr>
 							    <tr>
-							      <td>Cell</td>
-							      <td>Cell</td>
-							      <td>Cell</td>
+							      <td>Trouve Silk Blouse</td>
+							      <td class="positive">$143.00</td>
+							      <td>PoorLittleItGirl</td>
 							    </tr>
 							  </tbody>
 							</table>
@@ -74,6 +72,10 @@
 						</div>
 					</div>
 					<div class="four wide column">
+						<div class="ui tertiary yellow inverted segment">
+							<h3>Subscription Status:</h3>
+							<div class="wardrobeCardTitle"><i class="trophy large icon"></i> Subscribed!</div><br>
+						</div>
 						<div class="ui segment">
 							<div class="wardrobeCardTitle"><i class="thumbs up large icon"></i>Your rating</div><br>
 							<i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star grey icon"></i><br><br>
@@ -170,6 +172,10 @@
 		          	<p>{{description}}</p>
 		        {{else}}
 					<form class="ui form yourShopFormContainer" id="insertDescription">
+			      		<div class="inline field">
+						    <label><div id="insertDescriptionText">Price: $</div></label>
+						    <input id="{{_id}}priceInput" type="text" name="text" placeholder="0.00">
+						</div>
 						<div class="three fields">
 							<div class="field">
 								<label><div id="insertDescriptionText">Bust</div></label>
@@ -228,7 +234,7 @@
 									<option value="40">40"</option>
 								</select>
 							</div>
-						</div><br>
+						</div>
 						<div class="field">
 							<label><div id="insertDescriptionText">Say a fashion statement</div></label>
 						    <input id="{{_id}}insertDescription" type="text" name="text" placeholder="Description">
@@ -242,14 +248,9 @@
 	      <img src="{{imageUrl}}">
 	      <div class="ui teal ribbon label">
 	      	{{#if hasPrice}}
-	      		<h3>${{price}}</h3>
+	      		<h2>${{price}}</h2>
 	      	{{else}}
-	      		<form class="ui form" id="insertPrice">
-	      			<div class="one wide inline field left floated">
-				    <label>Price: $</label>
-				    <input id="priceInput" type="text" name="text" placeholder="0.00">
-				  </div>
-	      		</form>
+	      		<h3>No price attached</h3>
 	      	{{/if}}
 	      </div>
 	    </div>
