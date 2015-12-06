@@ -65,12 +65,30 @@ pre {
 	font-size: 20px;
 }
 
+#priceInput{
+	border:none;
+	width: 100px;
+}
+
+#chooseStyle{
+	width: 100px;
+}
+
+#insertDescriptionText{
+	color: white;
+}
+
 .sign-up-form{
 	display: none;
 }
 
 .cardContainer{
 	width: 98%;
+	margin: auto;
+}
+
+.yourShopFormContainer{
+	width: 90%;
 	margin: auto;
 }
 .subscriptionCardContainer{

@@ -21,6 +21,35 @@
 							<button class="ui button">Top-up wallet</button>
 							<button class="ui teal button">Get free credits</button>
 						</div>
+						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="shop large icon"></i>Transactions</div>
+							<table class="ui celled table">
+							  <thead>
+							    <tr><th>Header</th>
+							    <th>Header</th>
+							    <th>Header</th>
+							  </tr></thead>
+							  <tbody>
+							    <tr>
+							      <td>
+							        <div class="ui ribbon label">First</div>
+							      </td>
+							      <td>Cell</td>
+							      <td>Cell</td>
+							    </tr>
+							    <tr>
+							      <td>Cell</td>
+							      <td>Cell</td>
+							      <td>Cell</td>
+							    </tr>
+							    <tr>
+							      <td>Cell</td>
+							      <td>Cell</td>
+							      <td>Cell</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
 					</div>
 					<div class="eight wide column">
 						<div class="ui basic segment">
@@ -31,8 +60,6 @@
 								{{> yourShopCard}}
 							{{/each}}
 							</div>
-							//shows who rented which clothes<br>
-							//allows user to add in info for their clothes
 						</div>
 						<div class="ui basic segment">
 							<div class="wardrobeCardTitle"><i class="tags large icon"></i>You borrowed</div><br>
@@ -46,16 +73,77 @@
 					</div>
 					<div class="four wide column">
 						<div class="ui segment">
+							<div class="wardrobeCardTitle"><i class="thumbs up large icon"></i>Your rating</div><br>
+							<i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star yellow icon"></i><i class="big star grey icon"></i><br><br>
+							<button class="ui teal button">Read 6 user reviews</button>
+						</div>
+						<div class="ui segment">
 							<div class="wardrobeCardTitle"><i class="pie chart large icon"></i>Style profile</div><br>
 							<button class="ui teal button">See profile breakdown</button>
 						</div>
 						<div class="ui segment">
 							<div class="wardrobeCardTitle"><i class="cut large icon"></i>Your sexy sizes</div><br>
-							<form class="ui form">
-								<input type="text" name="size1" placeholder="Boob size"><br><br>
-								<input type="text" name="size2" placeholder="Booty size"><br><br>
-								<input type="text" name="size2" placeholder="Shoe size"><br><br>
-								<button class="ui teal button" type="Submit">Update sizes</button>
+							<form class="ui form yourShopFormContainer" id="insertDescription">
+								<div class="three fields">
+									<div class="field">
+										<label><h3>Bust</h3></label>
+										<select class="ui fluid search dropdown">
+											<option value="27">27"</option>
+											<option value="28">28"</option>
+											<option value="29">29"</option>
+											<option value="30">30"</option>
+											<option value="31">31"</option>
+											<option value="32">32"</option>
+											<option value="33">33"</option>
+											<option value="34">34"</option>
+											<option value="35">35"</option>
+											<option value="36">36"</option>
+											<option value="37">37"</option>
+											<option value="38">38"</option>
+											<option value="39">39"</option>
+											<option value="40">40"</option>
+										</select>
+									</div>
+									<div class="field">
+										<label><h3>Waist</h3></label>
+										<select class="ui fluid search dropdown">
+											<option value="27">27"</option>
+											<option value="28">28"</option>
+											<option value="29">29"</option>
+											<option value="30">30"</option>
+											<option value="31">31"</option>
+											<option value="32">32"</option>
+											<option value="33">33"</option>
+											<option value="34">34"</option>
+											<option value="35">35"</option>
+											<option value="36">36"</option>
+											<option value="37">37"</option>
+											<option value="38">38"</option>
+											<option value="39">39"</option>
+											<option value="40">40"</option>
+										</select>
+									</div>
+									<div class="field">
+										<label><h3>Hip</h3></label>
+										<select class="ui fluid search dropdown">
+											<option value="27">27"</option>
+											<option value="28">28"</option>
+											<option value="29">29"</option>
+											<option value="30">30"</option>
+											<option value="31">31"</option>
+											<option value="32">32"</option>
+											<option value="33">33"</option>
+											<option value="34">34"</option>
+											<option value="35">35"</option>
+											<option value="36">36"</option>
+											<option value="37">37"</option>
+											<option value="38">38"</option>
+											<option value="39">39"</option>
+											<option value="40">40"</option>
+										</select>
+									</div>
+								</div><br>
+								<button class="ui teal button" type="submit">Update sizes</button>
 							</form>
 						</div>
 					</div>
@@ -71,19 +159,122 @@
 	      <div class="ui dimmer">
 	        <div class="content">
 	          <div class="center">
-	          	<p>PLACEHOLDER</p>
-	          	<p>DESCRIPTION</p>
+	          	{{#if isDescriptionEntered}}
+	          		<p>Bust: {{bust}}<br>Waist: {{waist}}<br>Hip: {{hip}}</p>
+		          	<p>{{description}}</p>
+		        {{else}}
+					<form class="ui form yourShopFormContainer" id="insertDescription">
+						<div class="three fields">
+							<div class="field">
+								<label><div id="insertDescriptionText">Bust</div></label>
+								<select class="ui fluid search dropdown">
+									<option value="27">27"</option>
+									<option value="28">28"</option>
+									<option value="29">29"</option>
+									<option value="30">30"</option>
+									<option value="31">31"</option>
+									<option value="32">32"</option>
+									<option value="33">33"</option>
+									<option value="34">34"</option>
+									<option value="35">35"</option>
+									<option value="36">36"</option>
+									<option value="37">37"</option>
+									<option value="38">38"</option>
+									<option value="39">39"</option>
+									<option value="40">40"</option>
+								</select>
+							</div>
+							<div class="field">
+								<label><div id="insertDescriptionText">Waist</div></label>
+								<select class="ui fluid search dropdown">
+									<option value="27">27"</option>
+									<option value="28">28"</option>
+									<option value="29">29"</option>
+									<option value="30">30"</option>
+									<option value="31">31"</option>
+									<option value="32">32"</option>
+									<option value="33">33"</option>
+									<option value="34">34"</option>
+									<option value="35">35"</option>
+									<option value="36">36"</option>
+									<option value="37">37"</option>
+									<option value="38">38"</option>
+									<option value="39">39"</option>
+									<option value="40">40"</option>
+								</select>
+							</div>
+							<div class="field">
+								<label><div id="insertDescriptionText">Hip</div></label>
+								<select class="ui fluid search dropdown">
+									<option value="27">27"</option>
+									<option value="28">28"</option>
+									<option value="29">29"</option>
+									<option value="30">30"</option>
+									<option value="31">31"</option>
+									<option value="32">32"</option>
+									<option value="33">33"</option>
+									<option value="34">34"</option>
+									<option value="35">35"</option>
+									<option value="36">36"</option>
+									<option value="37">37"</option>
+									<option value="38">38"</option>
+									<option value="39">39"</option>
+									<option value="40">40"</option>
+								</select>
+							</div>
+						</div><br>
+						<div class="field">
+							<label><div id="insertDescriptionText">Say a fashion statement</div></label>
+						    <input id="{{_id}}insertDescription" type="text" name="text" placeholder="Description">
+						</div>
+						<button class="ui button" type="submit">Submit</button>
+					</form>
+		        {{/if}}
 	          </div>
 	        </div>
 	      </div>
-	      <img src="{{this}}">
-	      <div class="ui teal ribbon label"><h2>PRICE HERE</h2></div>
+	      <img src="{{imageUrl}}">
+	      <div class="ui teal ribbon label">
+	      	{{#if hasPrice}}
+	      		<h3>${{price}}</h3>
+	      	{{else}}
+	      		<form class="ui form" id="insertPrice">
+	      			<div class="one wide inline field left floated">
+				    <label>Price: $</label>
+				    <input id="priceInput" type="text" name="text" placeholder="0.00">
+				  </div>
+	      		</form>
+	      	{{/if}}
+	      </div>
 	    </div>
 	    <div class="content">
 	      <div class="meta">
-	      	<span class="left floated style">STYLE HERE</span>
-	        <span class="right floated likes">LIKES HERE</span>
-	      	<i class="right floated like icon"></i>
+	      	{{#if isStyleIndicated}}
+		      	<span class="left floated style">{{style}}</span>
+	      	{{else}}
+		      	<span class="left floated style">
+		      		<form class="ui form" id="chooseStyle">
+						<div class="field">
+							<select class="ui fluid search dropdown">
+								<option id="styleOption" value="Classic">Classic</option>
+								<option id="styleOption" value="Whimsical">Whimsical</option>
+								<option id="styleOption" value="Avant-garde">Avant-garde</option>
+								<option id="styleOption" value="Bohemian">Bohemian</option>
+								<option id="styleOption" value="Chic">Chic</option>
+							</select>
+						</div>
+			      	</form>
+			    </span>
+	      	{{/if}}
+	      	{{#if isPublished}}
+	      		{{#if isRented}}
+	      			<span class="right floated likes"><button class="ui orange button">Rented</button></span>
+	      		{{else}}
+		        	<span class="right floated likes"><button class="ui blue button">Public</button></span>
+		        {{/if}}
+	        {{else}}
+	        	<span class="right floated likes"><button class="ui teal button" id="publishButton" valaue="{{_id}}">Publish</button></span>
+	        {{/if}}
 	      </div>
 	    </div>
 	</div>
