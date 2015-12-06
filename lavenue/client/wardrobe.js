@@ -93,6 +93,10 @@ Template.wardrobe.helpers({
 				}
 			});
 		}	
+	},
+	getUserStylePreference: function(){
+		var preference = Profile.findOne(Meteor.userId).preference[0];
+		return preference;
 	}
 });
 

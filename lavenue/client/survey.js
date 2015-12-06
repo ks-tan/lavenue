@@ -96,6 +96,8 @@ Template.chart.topGenresChart = function() {
 
 	console.log(sortedStyle);
 
+	var userStyle = sortedStyle[0];
+
 	var oldProfile = Profile.findOne({userId: Meteor.userId()});
 	if (typeof oldProfile != "undefined") {
 		Profile.update(oldProfile._id, {
@@ -114,7 +116,7 @@ Template.chart.topGenresChart = function() {
             plotShadow: false
         },
         title: {
-            text: "Your style preference:<br><b>Classic!</b>"
+            text: "Your style preference:<br><b>" + userStyle + "</b>"
         },
         tooltip: {
             pointFormat: '<b>{point.percentage:.1f}%</b>'
