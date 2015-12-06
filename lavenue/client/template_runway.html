@@ -23,10 +23,11 @@
 	</div>
   	<div class="ui special card">
 	    <div class="blurring dimmable image">
-	      <div class="ui dimmer" id="descriptionHolder" title="{{_id}}">
+	      <div class="ui dimmer" title="{{_id}}">
 	        <div class="content">
 	          <div class="center">
 	          	<p>{{{description}}}</p>
+	          	<button id="descriptionHolder" class="ui inverted mini button" value="{{_id}}">More info</button><br><br><br>
 	            {{#if liked}} 
 	            <button id="unlikeButton" class="ui inverted button" value="{{_id}}">
 	            	<i class="like red icon" value="{{_id}}"></i>Liked

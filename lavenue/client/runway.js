@@ -73,5 +73,16 @@ Template.card.events({
 			Items.update(itemId, { $inc : { likes: -1 } });
 			Cart.remove(cartId);
 		}
+	},
+	'click #descriptionHolder': function(event) {
+		var id;
+		id = event.target.value;
+		var item = Items.findOne({_id: id});
+		$('#moreDetailsModal').modal('show');
+		$('h1.title').text(item.style);
+		console.log(item.style);
+		$('img.image').attr('src', item.imageUrl);
+		$('p.description').text(item.description);
+		$('h3#price').text(item.price);
 	}
 });
