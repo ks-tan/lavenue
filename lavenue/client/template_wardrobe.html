@@ -1,7 +1,10 @@
 <template name="wardrobe">
 	<center>
 		<br>
-		<h1>Wardrobe</h1>
+		<h1>
+			<a href="{{pathFor route='stylingRoom'}}"><i class="caret left icon"></i></a>
+			Wardrobe
+		</h1>
 		<br>
 		<div class="cardContainer">
 			<div class="ui stackable grid">
@@ -80,7 +83,7 @@
 						<div class="ui segment">
 							<div class="wardrobeCardTitle"><i class="pie chart large icon"></i>Style profile</div>
 							<h3>{{getUserStylePreference}}</h3>
-							<button class="ui teal button">See profile breakdown</button>
+							<button id="profileBreakdownButton" class="ui teal button">See profile breakdown</button>
 						</div>
 						<div class="ui segment">
 							<div class="wardrobeCardTitle"><i class="cut large icon"></i>Your sexy sizes</div><br>
@@ -151,6 +154,9 @@
 				</div>
 			</div>
 		</div>
+	<div id="profileBreakdownModal" class="ui medium modal">
+		{{> profileBreakdown}}
+	</div>
 	</center>
 </template>
 
@@ -279,4 +285,12 @@
 	      </div>
 	    </div>
 	</div>
+</template>
+
+<template name = "profileBreakdown">
+	<center>
+		<br>
+		<h1 class="title">Style Profile Breakdown</h1>
+		{{> chart}}
+	</center>
 </template>

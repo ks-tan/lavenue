@@ -8,6 +8,12 @@ Template.wardrobe.onRendered(function(){
 	});
 });
 
+Template.wardrobe.events({
+	'click #profileBreakdownButton': function(){
+		$(".ui.modal").modal('show');
+	}
+});
+
 Template.wardrobe.helpers({
 	getRemaining: function(){
 		if (Profile.findOne({userId: Meteor.userId()}).wallet == null){

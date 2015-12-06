@@ -111,3 +111,7 @@ pre {
 .intro {
 	display: none;
 }
+
+.caret{
+	color: black;
+}

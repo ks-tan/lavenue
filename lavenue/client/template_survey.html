@@ -1,7 +1,10 @@
 <template name="survey">
 	<center>
 		<br>
-		<h1>Style Profile</h1>
+		<h1>
+			Style Profile
+			<a href="{{pathFor route='runway'}}"><i class="caret right icon"></i></a>
+		</h1>
 		<br>
 	</center>
 	<center>
@@ -26,7 +29,9 @@
 
 <template name = "surveyDoneMsg">
 	<div id="surveyDoneMsg">
-		{{> chart}}
+		<center>
+			{{> chart}}
+		</center>
 		<h3>Proceed to the Runway to see our recommendations!</h3>
 		<a href = "{{pathFor route='runway'}}"><button class="ui teal simple medium button">To the Runway!</button></a>
 		<button class="ui simple medium button" id="goLater">Continue profiling</button>
@@ -34,5 +39,5 @@
 </template>
 
 <template name="chart">
-	<div id = "chart">{{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}</div>
+	<div id = "chart">{{> highchartsHelper chartId="test" chartWidth="800px" charHeight="100%" chartObject=topGenresChart}}</div>
 </template>
