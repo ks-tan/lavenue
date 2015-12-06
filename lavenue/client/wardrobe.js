@@ -30,7 +30,7 @@ Template.wardrobe.helpers({
 	},
 	getImageFromInstagram: function() {
 		if (ShopItems.find().count() == 0 || ShopItems == null){
-			Meteor.call("getImageInfo", "https://api.instagram.com/v1/users/382872795/media/recent/?client_id=36a3a03c63914bb48edb68724a33e548", function(err, result){
+			Meteor.call("getImageInfo", "https://api.instagram.com/v1/users/2288136085/media/recent/?client_id=36a3a03c63914bb48edb68724a33e548", function(err, result){
 				if (typeof err !== "undefined") {
 					console.log(err);
 				}

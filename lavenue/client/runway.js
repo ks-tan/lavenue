@@ -20,6 +20,15 @@ Template.runway.helpers({
 		for (x in carts) {
 			itemInCarts.push(carts[x].itemId);
 		}
+
+		for (x in items) {
+			if (itemInCarts.indexOf(items[x]._id) > -1) {
+				items[x].liked = true
+			} else {
+				items[x].liked = false
+			}
+		}
+
 		var profile = Profile.findOne({userId: Meteor.userId()});
 		if (typeof items != "undefined" && typeof profile != "undefined") {
 			var preference = profile.preference;
@@ -27,18 +36,13 @@ Template.runway.helpers({
 			for (x in preference) {
 				for (y in items) {
 					if (preference[x] == items[y].style) {
-						if (itemInCarts.indexOf(items[y]._id) > -1) {
-							items[y].liked = true
-						} else {
-							items[y].liked = false
-						}
 						result.push(items[y]);
 					}
 				}
 			}
 			return result;
 		} else {
-			return shuffle(Items.find().fetch());
+			return items;
 		}
 	}
 });
@@ -46,7 +50,7 @@ Template.runway.helpers({
 Template.card.events({
 	'click #likeButton': function(){
 		var itemId;
-		if(event.target == document.getElementById('likeButton')) {
+		if(event.target.id == "likeButton") {
 			itemId = event.target.value;
 		} else {
 			itemId = event.target.parentNode.value;
@@ -58,7 +62,8 @@ Template.card.events({
 	},
 	'click #unlikeButton': function() {
 		var itemId;
-		if(event.target == document.getElementById('unlikeButton')) {
+		console.log(event.target.id);
+		if(event.target.id == "unlikeButton") {
 			itemId = event.target.value;
 		} else {
 			itemId = event.target.parentNode.value;
@@ -71,7 +76,8 @@ Template.card.events({
 		}
 	},
 	'click #descriptionHolder': function(event) {
-		if(event.target == document.getElementById('descriptionHolder')) {
+		console.log(event.target)
+		if(event.currentTarget.id == "descriptionHolder") {
 			event.preventDefault();
 			var id = event.currentTarget.title;
 			console.log(id);
