@@ -62,7 +62,6 @@ Template.card.events({
 	},
 	'click #unlikeButton': function() {
 		var itemId;
-		console.log(event.target.id);
 		if(event.target.id == "unlikeButton") {
 			itemId = event.target.value;
 		} else {
@@ -74,19 +73,5 @@ Template.card.events({
 			Items.update(itemId, { $inc : { likes: -1 } });
 			Cart.remove(cartId);
 		}
-	},
-	'click #descriptionHolder': function(event) {
-		console.log(event.target)
-		if(event.currentTarget.id == "descriptionHolder") {
-			event.preventDefault();
-			var id = event.currentTarget.title;
-			console.log(id);
-			var item = Items.findOne({_id: id});
-			$('#moreDetailsModal').modal('show');
-			$('h1.title').text("TITLE HERE");
-			$('img.image').attr('src', item.imageUrl);
-			$('p.description').text(item.description);
-			$('h3#price').text(item.price);
-    	}
 	}
 });
