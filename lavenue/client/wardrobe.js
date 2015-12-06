@@ -59,15 +59,24 @@ Template.wardrobe.helpers({
 					if (rand == 3){
 						rent = "yes";
 						publish = "yes";
+						var possibility = Math.random();
+						var randomPrice;
+						if (possibility > 0.9) {
+							randomPrice = Math.floor(Math.random() * 300) + 200;
+						} else {
+							randomPrice = Math.floor(Math.random() * 150) + 50;
+						}
+						price = randomPrice;
 					}else{
 						rent = "no";
 						publish = "no";
+						price = "";
 					}
 					console.log(imageUrl);
 					ShopItems.insert({
 						imageUrl: imageUrl, 
 						description: "", 
-						price: "", 
+						price: price,
 						likes: "", 
 						style: "",
 						publish: publish,
